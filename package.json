@@ -1,0 +1,15 @@
+{
+  "name": "node-jwt",
+  "version": "1.0.0",
+  "description": "Projeto com o objetivo de adquirir conhecimento em como realizar a autenticacão JWT com novas tecnologias.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "RafaelFreimuth",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.2"
+  }
+}
