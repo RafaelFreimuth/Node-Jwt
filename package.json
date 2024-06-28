@@ -2,18 +2,20 @@
   "name": "node-jwt",
   "version": "1.0.0",
   "description": "Projeto com o objetivo de adquirir conhecimento em como realizar a autenticacão JWT com novas tecnologias.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start:dev": "node ./dist/index.js"
+    "start:dev": "node --env-file .env ./dist/server.js"
   },
   "keywords": [],
   "author": "RafaelFreimuth",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
     "typescript": "^5.5.2"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2"
   }
 }
