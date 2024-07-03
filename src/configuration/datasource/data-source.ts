@@ -7,9 +7,9 @@ export const AppDataSource = new DataSource({
     username: "postgres",
     password: "postgres",
     database: "node-jwt",
-    synchronize: false,
-    logging: true,
-    entities: ["/dist/models/**/*.js"],
+    synchronize: true,
+    logging: false,
+    entities: ["**/models/**/*.js"],
     subscribers: [],
     migrations: []
 });
