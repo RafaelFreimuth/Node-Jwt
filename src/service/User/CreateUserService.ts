@@ -1,5 +1,6 @@
 import { AppDataSource } from "../../configuration/datasource/data-source";
 import User from "../../models/user";
+import bcrypt from 'bcrypt';
 
 type CreateUserType = {
     nome: string;
@@ -21,8 +22,11 @@ export class CreateUserService {
     }
 
     private criptografarSenha(senha: string): string {
-        //implementar criptografia
-        return senha;
+        const salt = bcrypt.genSaltSync(10);
+
+        const senhaCriptorafada = bcrypt.hashSync(senha, salt);
+
+        return senhaCriptorafada;
     }
 
 }
