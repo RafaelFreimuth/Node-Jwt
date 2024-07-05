@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
-import { AppDataSource } from "../configuration/datasource/data-source";
-import User from "../models/user";
 import { CreateUserService } from "../service/User/CreateUserService";
+import { LoginUserService } from "../service/User/LoginUserService";
 
 export class UserController {
+    
+    async realizarLogin(request: Request, response: Response) {
+        const { login, senha } = request.body;
 
-    async findByLogin(request: Request, response: Response) {
+        let isRealizouLogin = await new LoginUserService().execute({login, senha});
 
-        let user = await AppDataSource.getRepository(User).findOneBy({login: request.params.login});
-
-        return response.json(user);
+        return response.send(isRealizouLogin);
     }
 
     async createUser(request: Request, response: Response) {
