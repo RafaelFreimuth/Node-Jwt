@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import { AppDataSource } from '../../configuration/datasource/data-source';
 import User from '../../models/user';
+import { TokenService } from '../TokenService';
 
 type LoginUserType = {
     login: string;
@@ -14,11 +15,19 @@ export class LoginUserService {
         const usuario = await this.userRepository.findOneBy({ login });
 
         if (!usuario) {
-            throw new Error("Usuário ou senha inválidos.");
+            return this.getErrorUsuarioOrSenhaInvalida();
         }
 
         const isSenhaValida = await bcrypt.compare(senha, usuario.senha);
 
-        return isSenhaValida;
+        if (isSenhaValida) {
+            return new TokenService().generateTokenJWT(usuario);
+        }
+        
+        this.getErrorUsuarioOrSenhaInvalida();
+    }
+
+    private getErrorUsuarioOrSenhaInvalida() {
+        throw new Error("Usuário ou senha inválidos");
     }
 }

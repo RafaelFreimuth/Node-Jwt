@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import { AppDataSource } from './configuration/datasource/data-source';
 import { userRoute } from './routes/UserRoute';
 
@@ -10,6 +10,7 @@ AppDataSource.initialize().then(() => {
 
 app.use(express.json());
 app.use('/user', userRoute);
+
 
 app.listen(process.env.SERVER_PORT, () => {
     console.log("Server is running...");
