@@ -7,3 +7,6 @@
 - Typescript
 - TypeORM
 - Express
+- Bcrypt
+- JsonWebToken
+- Postgres
