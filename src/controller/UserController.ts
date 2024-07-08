@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { CreateUserService } from "../service/User/CreateUserService";
 import { LoginUserService } from "../service/User/LoginUserService";
-import { TokenService } from "../service/TokenService";
 import { UserDTO } from "../dtos/UserDto";
 
 export class UserController {
